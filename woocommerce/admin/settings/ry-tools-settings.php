@@ -1,0 +1,74 @@
+<?php
+
+defined('ABSPATH') or exit;
+
+if (class_exists('RY_IFECPAY_WC_Admin_Settings', false)) {
+    if (!has_action('woocommerce_sections_rytools')) {
+        return new RY_IFECPAY_WC_Admin_Settings();
+    }
+}
+
+final class RY_IFECPAY_WC_Admin_Settings extends WC_Settings_Page
+{
+    public function __construct()
+    {
+        $this->id = 'rytools';
+        $this->label = __('RY Tools', 'ry-invoice-for-ecpay');
+
+        parent::__construct();
+    }
+
+    public function get_sections()
+    {
+        return apply_filters('woocommerce_get_sections_' . $this->id, []);
+    }
+
+    public function output()
+    {
+        global $current_section;
+
+        if (empty($current_section)) {
+            $current_section = 'ecpay_invoice';
+        }
+
+        if (apply_filters('ry_setting_section_' . $current_section, true)) {
+            $settings = $this->get_settings($current_section);
+            WC_Admin_Settings::output_fields($settings);
+        } else {
+            do_action('ry_setting_section_ouput_' . $current_section);
+        }
+    }
+
+    public function save()
+    {
+        global $current_section;
+
+        if (empty($current_section)) {
+            $current_section = 'ecpay_invoice';
+        }
+
+        if (apply_filters('ry_setting_section_' . $current_section, true)) {
+            $settings = $this->get_settings($current_section);
+            WC_Admin_Settings::save_fields($settings);
+        }
+
+        if ($current_section) {
+            do_action('woocommerce_update_options_' . $this->id . '_' . $current_section);
+        }
+    }
+
+    public function get_settings($current_section = '')
+    {
+        $settings = [];
+
+        if (empty($current_section)) {
+            $current_section = 'ecpay_invoice';
+        }
+
+        return apply_filters('woocommerce_get_settings_' . $this->id, $settings, $current_section);
+    }
+}
+
+if (!has_action('woocommerce_sections_rytools')) {
+    return new RY_IFECPAY_WC_Admin_Settings();
+}
