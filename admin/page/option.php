@@ -54,7 +54,7 @@ final class RY_IFECPAY_Admin_Page_Option extends RY_Abstract_Admin_Page
 
     public function do_admin_action(string $action): void
     {
-        if ($action !== 'ry-invoice-ecpay-option') {
+        if ('ry-invoice-ecpay-option' !== $action) {
             return;
         }
 

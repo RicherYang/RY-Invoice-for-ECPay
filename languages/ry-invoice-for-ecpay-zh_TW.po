@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-06-29T20:45:49+08:00\n"
-"PO-Revision-Date: 2026-07-05 11:04+0800\n"
+"PO-Revision-Date: 2026-07-06 10:39+0800\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
@@ -19,17 +19,17 @@ msgstr ""
 "X-Poedit-SearchPath-0: ./..\n"
 
 #. Author URI of the plugin
-#: ry-invoice-for-amego.php
+#: ry-invoice-for-ecpay.php
 msgid "https://richer.tw/"
 msgstr "https://richer.tw/"
 
 #. Plugin URI of the plugin
-#: ry-invoice-for-amego.php
+#: ry-invoice-for-ecpay.php
 msgid "https://ry-plugin.com/ry-invoice-for-ecpay"
 msgstr "https://ry-plugin.com/ry-invoice-for-ecpay"
 
 #. Author of the plugin
-#: ry-invoice-for-amego.php
+#: ry-invoice-for-ecpay.php
 msgid "Richer Yang"
 msgstr "Richer Yang"
 
@@ -144,12 +144,12 @@ msgid "Invalid donate number"
 msgstr "無效的愛心碼"
 
 #: woocommerce/invoice-basic.php:245
-#: woocommerce/invoice.php:278
+#: woocommerce/invoice.php:280
 msgid "Zero total fee without invoice"
 msgstr "總額零元不開立發票"
 
 #: woocommerce/invoice-basic.php:252
-#: woocommerce/invoice.php:284
+#: woocommerce/invoice.php:286
 msgid "Negative total fee can't invoice"
 msgstr "總額負數不開立發票"
 
@@ -332,18 +332,18 @@ msgstr "開立發票錯誤：%1$s (%2$s)"
 msgid "Invoice create time"
 msgstr "發票開立時間"
 
-#: woocommerce/invoice.php:348
-#: woocommerce/invoice.php:361
-#: woocommerce/invoice.php:374
-#: woocommerce/invoice.php:384
+#: woocommerce/invoice.php:350
+#: woocommerce/invoice.php:363
+#: woocommerce/invoice.php:376
+#: woocommerce/invoice.php:386
 msgid "parcel"
 msgstr "批"
 
-#: woocommerce/invoice.php:371
+#: woocommerce/invoice.php:373
 msgid "shipping fee"
 msgstr "運費"
 
-#: woocommerce/invoice.php:381
+#: woocommerce/invoice.php:383
 msgid "return fee"
 msgstr "退款"
 
@@ -390,13 +390,9 @@ msgstr "取消開立中。<br>請耐心等待。"
 msgid "Cancel get"
 msgstr "取消開立"
 
-#: includes/ry-general/html/log-info.php:58
+#: includes/ry-general/html/log-info.php:63
 msgid "Download"
 msgstr "下載"
-
-#: includes/ry-general/html/log-info.php:66
-msgid "Permanently delete"
-msgstr "永久刪除"
 
 #: admin/page/html/option.php:9
 #: admin/page/html/option.php:12
@@ -449,12 +445,12 @@ msgid "Item amount precision"
 msgstr "商品金額的小數點位數"
 
 #. Plugin Name of the plugin
-#: ry-invoice-for-amego.php
+#: ry-invoice-for-ecpay.php
 msgid "RY Invoice for ECPay"
 msgstr "RY Invoice for ECPay"
 
 #. Description of the plugin
-#: ry-invoice-for-amego.php
+#: ry-invoice-for-ecpay.php
 msgid "ECPay E-invoice, support WooCommerce."
 msgstr "綠界電子發票，支援 WooCommerce。"
 
@@ -479,3 +475,44 @@ msgstr "台灣"
 #: woocommerce/admin/settings/settings-invoice.php:66
 msgid "Delay time (hours)"
 msgstr "延遲時間 ( 小時 )"
+
+#. translators: %1$s: Plugin name, %2$s: License URL
+#: includes/ry-general/abstract-admin.php:49
+#, php-format
+msgid "%1$s: Your <a href=\"%2$s\">license</a> is not activated yet!"
+msgstr "%1$s: 你的<a href=\"%2$s\">授權</a>尚未啟用！"
+
+#: includes/ry-general/admin-logs.php:25
+#: includes/ry-general/admin-logs.php:96
+msgid "Logs"
+msgstr "紀錄"
+
+#: includes/ry-general/admin-logs.php:141
+msgid "Delete successful."
+msgstr "刪除成功。"
+
+#: includes/ry-general/admin-logs.php:148
+msgid "Delete failed."
+msgstr "刪除失敗。"
+
+#. translators: %s: Path of log file
+#: includes/ry-general/html/log-info.php:5
+#, php-format
+msgid "Viewing log file %s"
+msgstr "檢視紀錄檔 %s"
+
+#: includes/ry-general/html/log-info.php:36
+msgid "Details"
+msgstr "詳細資訊"
+
+#: includes/ry-general/html/log-info.php:71
+msgid "Delete Permanently"
+msgstr "永久刪除"
+
+#: includes/ry-general/html/logs-select.php:3
+msgid "Log Categories"
+msgstr "紀錄類別"
+
+#: includes/ry-general/html/logs-select.php:19
+msgid "Log Files"
+msgstr "紀錄檔案"
