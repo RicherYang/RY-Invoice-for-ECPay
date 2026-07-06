@@ -261,6 +261,8 @@ final class RY_IFECPAY_WC_Invoice
             return;
         }
         if (empty($order->get_meta('_invoice_type'))) {
+            $order->delete_meta_data('_invoice_number');
+            $order->save();
             return;
         }
 
