@@ -25,7 +25,7 @@ final class RY_IFECPAY extends RY_Abstract_Basic
     protected function do_init(): void
     {
         load_plugin_textdomain('ry-invoice-for-ecpay', false, plugin_basename(dirname(__DIR__)) . '/languages');
-        include_once RY_IFECPAY_PLUGIN_DIR . 'includes/composer/vendor/woocommerce/action-scheduler/action-scheduler.php';
+        include_once RY_IFECPAY_PLUGIN_DIR . 'includes/vendor/woocommerce/action-scheduler/action-scheduler.php';
 
         include_once RY_IFECPAY_PLUGIN_DIR . 'includes/ry-general/logs.php';
         RY_Logs::set_log(RY_IFECPAY::get_option('log', 'no') === 'yes', 'ecpay-invoice');
@@ -35,7 +35,7 @@ final class RY_IFECPAY extends RY_Abstract_Basic
             RY_IFECPAY_Update::update();
         }
 
-        add_action('init', [$this, 'do_wp_init'], 11);
+        add_action('init', [$this, 'do_wp_init'], 9);
     }
 
     public function do_wp_init(): void
