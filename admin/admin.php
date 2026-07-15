@@ -3,10 +3,13 @@
 defined('ABSPATH') or exit;
 
 use RY\General\AbstractAdmin;
+use RY\Paid\Page\License;
 
 final class RY_IFECPAY_Admin extends AbstractAdmin
 {
     protected static ?self $_instance = null;
+
+    protected RY_IFECPAY_License $license;
 
     public static function instance(): RY_IFECPAY_Admin
     {
@@ -20,6 +23,8 @@ final class RY_IFECPAY_Admin extends AbstractAdmin
 
     protected function do_init(): void
     {
+        License::init_menu();
+
         parent::do_init();
 
         $this->license = RY_IFECPAY_License::instance();
