@@ -6,7 +6,7 @@ use RY\General\Logs;
 
 final class RY_IFECPAY_Invoice extends RY_IFECPAY_Abstract_Invoice
 {
-    protected static ?self $_instance = null;
+    private static ?self $_instance = null;
 
     private array $api_test_url = [
         'get' => 'https://einvoice-stage.ecpay.com.tw/B2CInvoice/Issue',

@@ -6,7 +6,7 @@ use RY\General\Logs;
 
 final class RY_IFECPAY_WC_Invoice
 {
-    protected static ?self $_instance = null;
+    private static ?self $_instance = null;
 
     public static function instance(): RY_IFECPAY_WC_Invoice
     {

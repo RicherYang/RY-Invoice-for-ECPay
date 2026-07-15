@@ -11,7 +11,7 @@ final class RY_IFECPAY extends AbstractBasic
 
     public const PLUGIN_NAME = 'RY Invoice for ECPay';
 
-    protected static ?self $_instance = null;
+    private static ?self $_instance = null;
 
     public static function instance(): RY_IFECPAY
     {

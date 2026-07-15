@@ -4,7 +4,7 @@ defined('ABSPATH') or exit;
 
 final class RY_IFECPAY_Updater
 {
-    protected static ?self $_instance = null;
+    private static ?self $_instance = null;
 
     public static function instance(): RY_IFECPAY_Updater
     {
