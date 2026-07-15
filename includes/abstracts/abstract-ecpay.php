@@ -1,5 +1,7 @@
 <?php
 
+use RY\General\Logs;
+
 abstract class RY_IFECPAY_Abstract_Invoice
 {
     protected function generate_trade_no($object_ID, $order_prefix = '')
@@ -40,12 +42,12 @@ abstract class RY_IFECPAY_Abstract_Invoice
         ]);
 
         if (is_wp_error($response)) {
-            RY_Logs::log('ecpay-invoice', 'error', 'Link failed', $response->get_error_messages());
+            Logs::log('ecpay-invoice', 'error', 'Link failed', $response->get_error_messages());
             return;
         }
 
         if (wp_remote_retrieve_response_code($response) != 200) {
-            RY_Logs::log('ecpay-invoice', 'error', 'Link HTTP status error', [
+            Logs::log('ecpay-invoice', 'error', 'Link HTTP status error', [
                 '$post_data' => $post_data,
                 'status' => wp_remote_retrieve_response_code($response),
             ]);
@@ -55,7 +57,7 @@ abstract class RY_IFECPAY_Abstract_Invoice
         $result = json_decode(wp_remote_retrieve_body($response));
 
         if (!is_object($result)) {
-            RY_Logs::log('ecpay-invoice', 'error', 'Link response parse failed', ['response' => wp_remote_retrieve_body($response)]);
+            Logs::log('ecpay-invoice', 'error', 'Link response parse failed', ['response' => wp_remote_retrieve_body($response)]);
             return;
         }
 

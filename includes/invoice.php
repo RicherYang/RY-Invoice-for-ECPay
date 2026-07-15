@@ -2,6 +2,8 @@
 
 defined('ABSPATH') or exit;
 
+use RY\General\Logs;
+
 final class RY_IFECPAY_Invoice extends RY_IFECPAY_Abstract_Invoice
 {
     protected static ?self $_instance = null;
@@ -146,10 +148,10 @@ final class RY_IFECPAY_Invoice extends RY_IFECPAY_Abstract_Invoice
         }
 
         do_action('ry_invoice_ecpay-pre_get_invoice', $post_args, $object_ID);
-        RY_Logs::log('ecpay-invoice', 'info', 'Get LINK #' . $object_ID, $post_args);
+        Logs::log('ecpay-invoice', 'info', 'Get LINK #' . $object_ID, $post_args);
         $result = $this->link_server($post_url, $post_args, $api_info['MerchantID'], $api_info['HashKey'], $api_info['HashIV']);
         if ($result) {
-            RY_Logs::log('ecpay-invoice', 'info', 'Get response #' . $object_ID, $result);
+            Logs::log('ecpay-invoice', 'info', 'Get response #' . $object_ID, $result);
             do_action('ry_invoice_ecpay-post_get_invoice', $post_args, $result, $object_ID);
         }
     }
@@ -172,10 +174,10 @@ final class RY_IFECPAY_Invoice extends RY_IFECPAY_Abstract_Invoice
         }
 
         do_action('ry_invoice_ecpay-pre_invalid_invoice', $post_args, $object_ID);
-        RY_Logs::log('ecpay-invoice', 'info', 'Invalid LINK #' . $object_ID, $post_args);
+        Logs::log('ecpay-invoice', 'info', 'Invalid LINK #' . $object_ID, $post_args);
         $result = $this->link_server($post_url, $post_args, $api_info['MerchantID'], $api_info['HashKey'], $api_info['HashIV']);
         if ($result) {
-            RY_Logs::log('ecpay-invoice', 'info', 'Invalid response #' . $object_ID, $result);
+            Logs::log('ecpay-invoice', 'info', 'Invalid response #' . $object_ID, $result);
             do_action('ry_invoice_ecpay-post_invalid_invoice', $post_args, $result, $object_ID);
         }
     }

@@ -24,6 +24,7 @@ define('RY_IFECPAY_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('RY_IFECPAY_PLUGIN_BASENAME', plugin_basename(__FILE__));
 define('RY_IFECPAY_PLUGIN_LANGUAGES_DIR', plugin_dir_path(__FILE__) . '/languages');
 
+require_once RY_IFECPAY_PLUGIN_DIR . 'includes/vendor/autoload.php';
 require_once RY_IFECPAY_PLUGIN_DIR . 'includes/main.php';
 
 register_activation_hook(__FILE__, ['RY_IFECPAY', 'plugin_activation']);

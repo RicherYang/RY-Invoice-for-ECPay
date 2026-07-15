@@ -2,9 +2,9 @@
 
 defined('ABSPATH') or exit;
 
-include_once RY_IFECPAY_PLUGIN_DIR . 'includes/ry-general/abstract-admin.php';
+use RY\General\AbstractAdmin;
 
-final class RY_IFECPAY_Admin extends RY_Abstract_Admin
+final class RY_IFECPAY_Admin extends AbstractAdmin
 {
     protected static ?self $_instance = null;
 
