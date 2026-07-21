@@ -1,5 +1,7 @@
 <?php
 
+use RY\Invoice\Ecpay\WooCommerce\Invoice;
+
 defined('ABSPATH') or exit;
 
 final class RY_IFECPAY_Cron
@@ -22,7 +24,7 @@ final class RY_IFECPAY_Cron
         if (function_exists('wc_get_order')) {
             $order = wc_get_order($object_ID);
             if ($order) {
-                RY_IFECPAY_WC_Invoice::instance()->get_invoice($order);
+                Invoice::instance()->get_invoice($order);
             }
         }
     }
@@ -32,7 +34,7 @@ final class RY_IFECPAY_Cron
         if (function_exists('wc_get_order')) {
             $order = wc_get_order($object_ID);
             if ($order) {
-                RY_IFECPAY_WC_Invoice::instance()->invalid_invoice($order);
+                Invoice::instance()->invalid_invoice($order);
             }
         }
     }

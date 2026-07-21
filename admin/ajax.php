@@ -2,6 +2,8 @@
 
 defined('ABSPATH') or exit;
 
+use RY\Invoice\Ecpay\WooCommerce\Invoice;
+
 final class RY_IFECPAY_Admin_Ajax
 {
     private static ?self $_instance = null;
@@ -33,7 +35,7 @@ final class RY_IFECPAY_Admin_Ajax
         if (function_exists('wc_get_order')) {
             $order = wc_get_order($object_ID);
             if ($order) {
-                RY_IFECPAY_WC_Invoice::instance()->get_invoice($order);
+                Invoice::instance()->get_invoice($order);
             }
         }
 
@@ -50,7 +52,7 @@ final class RY_IFECPAY_Admin_Ajax
         if (function_exists('wc_get_order')) {
             $order = wc_get_order($object_ID);
             if ($order) {
-                RY_IFECPAY_WC_Invoice::instance()->cancel_invoice($order);
+                Invoice::instance()->cancel_invoice($order);
             }
         }
 
@@ -67,7 +69,7 @@ final class RY_IFECPAY_Admin_Ajax
         if (function_exists('wc_get_order')) {
             $order = wc_get_order($object_ID);
             if ($order) {
-                RY_IFECPAY_WC_Invoice::instance()->invalid_invoice($order);
+                Invoice::instance()->invalid_invoice($order);
             }
         }
 
