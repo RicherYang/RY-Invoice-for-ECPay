@@ -3,6 +3,7 @@
 defined('ABSPATH') or exit;
 
 use RY\General\AbstractBasic;
+use RY\General\ActionScheduler;
 use RY\General\Logs;
 use RY\Invoice\Ecpay\Admin\Admin;
 use RY\Invoice\Ecpay\Cron;
@@ -34,6 +35,7 @@ final class RY_IFECPAY extends AbstractBasic
     {
         load_plugin_textdomain('ry-invoice-for-ecpay', false, plugin_basename(dirname(__DIR__)) . '/languages');
         include_once RY_IFECPAY_PLUGIN_DIR . 'includes/vendor/woocommerce/action-scheduler/action-scheduler.php';
+        ActionScheduler::instance();
 
         Logs::set_log(RY_IFECPAY::get_option('log', 'no') === 'yes', 'ecpay-invoice');
 
