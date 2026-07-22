@@ -1,0 +1,39 @@
+<?php
+
+namespace RY\Invoice\Ecpay;
+
+defined('ABSPATH') or exit;
+
+final class Utils
+{
+    public static function invoice_type_to_name($invoice_type = '')
+    {
+        static $type_name = [];
+        if (empty($type_name)) {
+            $type_name = [
+                'personal' => _x('personal', 'invoice type', 'ry-invoice-for-ecpay'),
+                'company' => _x('company', 'invoice type', 'ry-invoice-for-ecpay'),
+                'donate' => _x('donate', 'invoice type', 'ry-invoice-for-ecpay'),
+            ];
+        }
+
+        return $type_name[$invoice_type] ?? $invoice_type;
+    }
+
+    public static function carruer_type_to_name($carruer_type = '')
+    {
+        static $type_name = [];
+        if (empty($type_name)) {
+            $type_name = [
+                'amego_host' => _x('amego_host', 'carruer type', 'ry-invoice-for-ecpay'),
+                'ezpay_host' => _x('ezpay_host', 'carruer type', 'ry-invoice-for-ecpay'),
+                'ecpay_host' => _x('ecpay_host', 'carruer type', 'ry-invoice-for-ecpay'),
+                'smilepay_host' => _x('smilepay_host', 'carruer type', 'ry-invoice-for-ecpay'),
+                'MOICA' => _x('MOICA', 'carruer type', 'ry-invoice-for-ecpay'),
+                'phone_barcode' => _x('phone_barcode', 'carruer type', 'ry-invoice-for-ecpay'),
+            ];
+        }
+
+        return $type_name[$carruer_type] ?? $carruer_type;
+    }
+}

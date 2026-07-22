@@ -1,10 +1,13 @@
 <?php
 
+namespace RY\Invoice\Ecpay\Admin\Page;
+
 defined('ABSPATH') or exit;
 
 use RY\General\AbstractAdminPage;
+use RY\Invoice\Ecpay\Admin\Admin;
 
-final class RY_IFECPAY_Admin_Page_Option extends AbstractAdminPage
+final class Option extends AbstractAdminPage
 {
     public static function init_menu(): void
     {
@@ -30,7 +33,7 @@ final class RY_IFECPAY_Admin_Page_Option extends AbstractAdminPage
 
         if ($_wp_menu_nopriv) {
             $_wp_menu_nopriv['ry-invoice-ecpay-option'] = true;
-            $_wp_real_parent_file['ry-invoice-ecpay-option'] = RY_IFECPAY_Admin::instance()->main_slug;
+            $_wp_real_parent_file['ry-invoice-ecpay-option'] = Admin::instance()->main_slug;
             $submenu_file = 'ry-invoice';
         }
     }
@@ -63,18 +66,16 @@ final class RY_IFECPAY_Admin_Page_Option extends AbstractAdminPage
         }
 
         $log = sanitize_locale_name($_POST['log'] ?? '') === 'yes' ? 'yes' : 'no';
-        RY_IFECPAY::update_option('log', $log);
+        \RY_IFECPAY::update_option('log', $log);
         $api_info = [
             'testmode' => sanitize_locale_name($_POST['testmode'] ?? '') === 'yes' ? 'yes' : 'no',
             'MerchantID' => sanitize_locale_name($_POST['MerchantID'] ?? ''),
             'HashKey' => sanitize_locale_name($_POST['HashKey'] ?? ''),
             'HashIV' => sanitize_locale_name($_POST['HashIV'] ?? ''),
         ];
-        RY_IFECPAY::update_option('apiinfo', $api_info, false);
+        \RY_IFECPAY::update_option('apiinfo', $api_info, false);
         $this->add_notice('success', __('Settings saved.', 'ry-invoice-for-ecpay'));
 
         wp_safe_redirect(admin_url('admin.php?page=ry-invoice-ecpay-option'));
     }
 }
-
-RY_IFECPAY_Admin_Page_Option::init_menu();

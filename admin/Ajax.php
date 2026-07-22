@@ -1,14 +1,16 @@
 <?php
 
+namespace RY\Invoice\Ecpay\Admin;
+
 defined('ABSPATH') or exit;
 
 use RY\Invoice\Ecpay\WooCommerce\Invoice;
 
-final class RY_IFECPAY_Admin_Ajax
+final class Ajax
 {
     private static ?self $_instance = null;
 
-    public static function instance(): RY_IFECPAY_Admin_Ajax
+    public static function instance(): Ajax
     {
         if (null === self::$_instance) {
             self::$_instance = new self();
@@ -30,7 +32,7 @@ final class RY_IFECPAY_Admin_Ajax
         check_ajax_referer('get-invoice');
 
         $object_ID = intval($_POST['id'] ?? '');
-        as_unschedule_action(RY_IFECPAY::OPTION_PREFIX . 'auto_get_invoice', [$object_ID], 'ry-invoice');
+        as_unschedule_action(\RY_IFECPAY::OPTION_PREFIX . 'auto_get_invoice', [$object_ID], 'ry-invoice');
 
         if (function_exists('wc_get_order')) {
             $order = wc_get_order($object_ID);
@@ -47,7 +49,7 @@ final class RY_IFECPAY_Admin_Ajax
         check_ajax_referer('cancel-invoice');
 
         $object_ID = intval($_POST['id'] ?? '');
-        as_unschedule_action(RY_IFECPAY::OPTION_PREFIX . 'auto_get_invoice', [$object_ID], 'ry-invoice');
+        as_unschedule_action(\RY_IFECPAY::OPTION_PREFIX . 'auto_get_invoice', [$object_ID], 'ry-invoice');
 
         if (function_exists('wc_get_order')) {
             $order = wc_get_order($object_ID);
@@ -64,7 +66,7 @@ final class RY_IFECPAY_Admin_Ajax
         check_ajax_referer('invalid-invoice');
 
         $object_ID = intval($_POST['id'] ?? '');
-        as_unschedule_action(RY_IFECPAY::OPTION_PREFIX . 'auto_get_invoice', [$object_ID], 'ry-invoice');
+        as_unschedule_action(\RY_IFECPAY::OPTION_PREFIX . 'auto_get_invoice', [$object_ID], 'ry-invoice');
 
         if (function_exists('wc_get_order')) {
             $order = wc_get_order($object_ID);

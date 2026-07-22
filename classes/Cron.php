@@ -1,22 +1,25 @@
 <?php
 
-use RY\Invoice\Ecpay\WooCommerce\Invoice;
+namespace RY\Invoice\Ecpay;
 
 defined('ABSPATH') or exit;
 
-final class RY_IFECPAY_Cron
+use RY\Invoice\Ecpay\License;
+use RY\Invoice\Ecpay\WooCommerce\Invoice;
+
+final class Cron
 {
     public static function add_action(): void
     {
-        add_action(RY_IFECPAY::OPTION_PREFIX . 'check_expire', [__CLASS__, 'check_expire']);
+        add_action(\RY_IFECPAY::OPTION_PREFIX . 'check_expire', [__CLASS__, 'check_expire']);
 
-        add_action(RY_IFECPAY::OPTION_PREFIX . 'auto_get_invoice', [__CLASS__, 'get_invoice']);
-        add_action(RY_IFECPAY::OPTION_PREFIX . 'auto_invalid_invoice', [__CLASS__, 'invalid_invoice']);
+        add_action(\RY_IFECPAY::OPTION_PREFIX . 'auto_get_invoice', [__CLASS__, 'get_invoice']);
+        add_action(\RY_IFECPAY::OPTION_PREFIX . 'auto_invalid_invoice', [__CLASS__, 'invalid_invoice']);
     }
 
     public static function check_expire(): void
     {
-        RY_IFECPAY_License::instance()->check_expire();
+        License::instance()->check_expire();
     }
 
     public static function get_invoice($object_ID): void

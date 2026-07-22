@@ -4,6 +4,8 @@ namespace RY\Invoice\Ecpay\WooCommerce;
 
 defined('ABSPATH') or exit;
 
+use RY\Invoice\Ecpay\Utils;
+
 final class Fields
 {
     private static ?self $_instance = null;
@@ -36,9 +38,9 @@ final class Fields
                 'type' => 'select',
                 'label' => __('Invoice type', 'ry-invoice-for-ecpay'),
                 'options' => [
-                    'personal' => ry_ifecpay_invoice_type_to_name('personal'),
-                    'company' => ry_ifecpay_invoice_type_to_name('company'),
-                    'donate' => ry_ifecpay_invoice_type_to_name('donate'),
+                    'personal' => Utils::invoice_type_to_name('personal'),
+                    'company' => Utils::invoice_type_to_name('company'),
+                    'donate' => Utils::invoice_type_to_name('donate'),
                 ],
                 'default' => 'personal',
                 'required' => true,
@@ -48,9 +50,9 @@ final class Fields
                 'type' => 'select',
                 'label' => __('Carruer type', 'ry-invoice-for-ecpay'),
                 'options' => [
-                    'ecpay_host' => ry_ifecpay_carruer_type_to_name('ecpay_host') . __(' (send paper when win)', 'ry-invoice-for-ecpay'),
-                    'MOICA' => ry_ifecpay_carruer_type_to_name('MOICA'),
-                    'phone_barcode' => ry_ifecpay_carruer_type_to_name('phone_barcode'),
+                    'ecpay_host' => Utils::carruer_type_to_name('ecpay_host') . __(' (send paper when win)', 'ry-invoice-for-ecpay'),
+                    'MOICA' => Utils::carruer_type_to_name('MOICA'),
+                    'phone_barcode' => Utils::carruer_type_to_name('phone_barcode'),
                 ],
                 'default' => 'ecpay_host',
                 'required' => true,
@@ -262,13 +264,13 @@ final class Fields
         $invoice_info[] = [
             'key' => 'invoice-type',
             'name' => __('Invoice type', 'ry-invoice-for-ecpay'),
-            'value' => ry_ifecpay_invoice_type_to_name($invoice_type),
+            'value' => Utils::invoice_type_to_name($invoice_type),
         ];
 
         switch ($invoice_type) {
             case 'personal':
                 $key = count($invoice_info) - 1;
-                $invoice_info[$key]['value'] .= ' (' . ry_ifecpay_carruer_type_to_name($carruer_type) . ')';
+                $invoice_info[$key]['value'] .= ' (' . Utils::carruer_type_to_name($carruer_type) . ')';
                 if (in_array($carruer_type, ['MOICA', 'phone_barcode'])) {
                     $invoice_info[] = [
                         'key' => 'carruer-number',
