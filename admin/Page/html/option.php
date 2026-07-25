@@ -5,7 +5,7 @@ use RY\Invoice\Ecpay\LinkProvider;
 
 ?>
 
-<?php $api_info = LinkProvider::instance()->get_api_info(); ?>
+<?php $api_info = LinkProvider::instance()->get_api_info(false); ?>
 
 <h2 class="title"><?php esc_html_e('API credentials', 'ry-invoice-for-ecpay'); ?></h2>
 

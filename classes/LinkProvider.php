@@ -201,7 +201,7 @@ final class LinkProvider
         return $general_info;
     }
 
-    public function get_api_info()
+    public function get_api_info($load_test = true)
     {
         $api_info = \RY_IFECPAY::get_option('apiinfo', []);
         if (!is_array($api_info)) {
@@ -215,7 +215,7 @@ final class LinkProvider
         ], $api_info);
         $api_info['testmode'] = $api_info['testmode'] === 'yes';
 
-        if ($api_info['testmode'] === true) {
+        if ($load_test && $api_info['testmode'] === true) {
             $api_info['MerchantID'] = '2000132';
             $api_info['HashKey'] = 'ejCk326UnaZWKisg';
             $api_info['HashIV'] = 'q9jcZX8Ib9LM8wYk';
