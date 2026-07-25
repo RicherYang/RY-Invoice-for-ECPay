@@ -5,6 +5,7 @@ namespace RY\Invoice\Ecpay\WooCommerce\Admin;
 defined('ABSPATH') or exit;
 
 use Automattic\WooCommerce\Utilities\OrderUtil;
+use RY\Invoice\Ecpay\WooCommerce\Admin\MetaBoxes\Info;
 use RY\Invoice\Ecpay\WooCommerce\Invoice;
 
 final class Order
@@ -23,7 +24,7 @@ final class Order
 
     protected function do_init(): void
     {
-        add_action('woocommerce_admin_order_data_after_billing_address', ['RY\Invoice\Ecpay\WooCommerce\Admin\MetaBoxes\Info', 'output']);
+        add_action('woocommerce_admin_order_data_after_billing_address', [Info::class, 'output']);
 
         add_action('woocommerce_update_order', [$this, 'save_order_update']);
 

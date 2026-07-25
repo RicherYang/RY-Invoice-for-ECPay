@@ -5,7 +5,7 @@ namespace RY\Invoice\Ecpay;
 defined('ABSPATH') or exit;
 
 use RY\Invoice\Ecpay\LinkServer;
-use RY\Paid\AbstractLicense;
+use RY\Paid\V20260724\AbstractLicense;
 
 final class License extends AbstractLicense
 {
