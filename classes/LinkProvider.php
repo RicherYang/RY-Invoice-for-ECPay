@@ -4,7 +4,8 @@ namespace RY\Invoice\Ecpay;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260724\Logs;
+use RY\General\V20260727\Logs;
+use RY\General\V20260727\Utils;
 
 final class LinkProvider
 {
@@ -213,9 +214,9 @@ final class LinkProvider
             'HashKey' => '',
             'HashIV' => '',
         ], $api_info);
-        $api_info['testmode'] = $api_info['testmode'] === 'yes';
+        $api_info['testmode'] = Utils::string_to_bool($api_info['testmode']);
 
-        if ($load_test && $api_info['testmode'] === true) {
+        if ($load_test && $api_info['testmode']) {
             $api_info['MerchantID'] = '2000132';
             $api_info['HashKey'] = 'ejCk326UnaZWKisg';
             $api_info['HashIV'] = 'q9jcZX8Ib9LM8wYk';
