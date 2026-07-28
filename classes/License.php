@@ -4,12 +4,11 @@ namespace RY\Invoice\Ecpay;
 
 defined('ABSPATH') or exit;
 
-use RY\Invoice\Ecpay\LinkServer;
 use RY\Paid\V20260727\AbstractLicense;
 
 final class License extends AbstractLicense
 {
-    public static string $main_class = \RY_IFECPAY::class;
+    public static string $main_class = Main::class;
 
     private static ?self $_instance = null;
 
@@ -35,11 +34,11 @@ final class License extends AbstractLicense
 
     public function get_version_info()
     {
-        $version_info = \RY_IFECPAY::get_transient('version_info');
+        $version_info = Main::get_transient('version_info');
         if (empty($version_info)) {
             $version_info = LinkServer::instance()->check_version();
             if ($version_info) {
-                \RY_IFECPAY::set_transient('version_info', $version_info, HOUR_IN_SECONDS);
+                Main::set_transient('version_info', $version_info, HOUR_IN_SECONDS);
             }
         }
 
@@ -51,9 +50,9 @@ final class License extends AbstractLicense
         $json = LinkServer::instance()->expire_data();
         if (is_array($json) && isset($json['data'])) {
             $this->set_license_data($json['data']);
-            \RY_IFECPAY::delete_transient('expire_link_error');
+            Main::delete_transient('expire_link_error');
         } elseif ($json === false) {
-            $link_error = (int) \RY_IFECPAY::get_transient('expire_link_error');
+            $link_error = (int) Main::get_transient('expire_link_error');
             if ($link_error > 3) {
                 $this->delete_license();
             } else {
@@ -61,7 +60,7 @@ final class License extends AbstractLicense
                     $link_error = 0;
                 }
                 $link_error += 1;
-                \RY_IFECPAY::set_transient('expire_link_error', $link_error);
+                Main::set_transient('expire_link_error', $link_error);
             }
         } else {
             $this->delete_license();

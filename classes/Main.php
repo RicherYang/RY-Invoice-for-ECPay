@@ -1,19 +1,16 @@
 <?php
 
+namespace RY\Invoice\Ecpay;
+
 defined('ABSPATH') or exit;
 
 use RY\General\V20260727\AbstractBasic;
 use RY\General\V20260727\Logs;
 use RY\Invoice\Ecpay\Admin\Admin;
-use RY\Invoice\Ecpay\Cron;
-use RY\Invoice\Ecpay\License;
-use RY\Invoice\Ecpay\LinkServer;
-use RY\Invoice\Ecpay\Update;
-use RY\Invoice\Ecpay\Updater;
 use RY\Invoice\Ecpay\WooCommerce\Fields;
 use RY\Invoice\Ecpay\WooCommerce\Invoice;
 
-final class RY_IFECPAY extends AbstractBasic
+final class Main extends AbstractBasic
 {
     public const OPTION_PREFIX = 'RY_IFECPAY_';
 
@@ -21,7 +18,7 @@ final class RY_IFECPAY extends AbstractBasic
 
     private static ?self $_instance = null;
 
-    public static function instance(): RY_IFECPAY
+    public static function instance(): Main
     {
         if (null === self::$_instance) {
             self::$_instance = new self();
@@ -35,7 +32,7 @@ final class RY_IFECPAY extends AbstractBasic
     {
         load_plugin_textdomain('ry-invoice-for-ecpay', false, plugin_basename(dirname(__DIR__)) . '/languages');
 
-        Logs::set_log(RY_IFECPAY::get_option('log', 'no') === 'yes', 'ecpay-invoice');
+        Logs::set_log(self::get_option('log', 'no') === 'yes', 'ecpay-invoice');
 
         if (is_admin()) {
             Update::update();

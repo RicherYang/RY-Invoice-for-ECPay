@@ -3,6 +3,7 @@
 <?php
 use RY\General\V20260727\Utils;
 use RY\Invoice\Ecpay\LinkProvider;
+use RY\Invoice\Ecpay\Main;
 
 ?>
 
@@ -16,7 +17,7 @@ use RY\Invoice\Ecpay\LinkProvider;
         <td>
             <fieldset>
                 <legend class="screen-reader-text"><span><?php esc_html_e('Debug log', 'ry-invoice-for-ecpay'); ?></span></legend>
-                <label for="log"><input name="log" type="checkbox" id="log" value="yes" <?php checked(Utils::string_to_bool(RY_IFECPAY::get_option('log', 'no'))); ?>>
+                <label for="log"><input name="log" type="checkbox" id="log" value="yes" <?php checked(Utils::string_to_bool(Main::get_option('log', 'no'))); ?>>
                     <?php esc_html_e('Enable log', 'ry-invoice-for-ecpay'); ?></label>
                 <p class="description">
                     <?php echo wp_kses(

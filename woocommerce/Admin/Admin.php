@@ -4,8 +4,6 @@ namespace RY\Invoice\Ecpay\WooCommerce\Admin;
 
 defined('ABSPATH') or exit;
 
-use RY\Invoice\Ecpay\WooCommerce\Admin\Order;
-use RY\Invoice\Ecpay\WooCommerce\Admin\Settings;
 use RY\Invoice\Ecpay\WooCommerce\Admin\Settings\Invoice;
 
 final class Admin

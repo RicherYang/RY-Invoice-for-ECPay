@@ -4,6 +4,8 @@ namespace RY\Invoice\Ecpay\WooCommerce\Admin\Settings;
 
 defined('ABSPATH') or exit;
 
+use RY\Invoice\Ecpay\Main;
+
 final class Invoice
 {
     private static ?self $_instance = null;
@@ -57,14 +59,14 @@ final class Invoice
                 ],
                 [
                     'title' => __('Show invoice number', 'ry-invoice-for-ecpay'),
-                    'id' => \RY_IFECPAY::OPTION_PREFIX . 'show_invoice_number',
+                    'id' => Main::OPTION_PREFIX . 'show_invoice_number',
                     'type' => 'checkbox',
                     'default' => 'no',
                     'desc' => __('Show invoice number in Frontend order list', 'ry-invoice-for-ecpay'),
                 ],
                 [
                     'title' => __('Move billing company', 'ry-invoice-for-ecpay'),
-                    'id' => \RY_IFECPAY::OPTION_PREFIX . 'move_billing_company',
+                    'id' => Main::OPTION_PREFIX . 'move_billing_company',
                     'type' => 'checkbox',
                     'default' => 'no',
                     'desc' => __('Move billing company to invoice area', 'ry-invoice-for-ecpay'),
@@ -80,7 +82,7 @@ final class Invoice
                 ],
                 [
                     'title' => __('Get mode', 'ry-invoice-for-ecpay'),
-                    'id' => \RY_IFECPAY::OPTION_PREFIX . 'get_mode',
+                    'id' => Main::OPTION_PREFIX . 'get_mode',
                     'type' => 'select',
                     'default' => 'manual',
                     'options' => [
@@ -96,7 +98,7 @@ final class Invoice
                 ],
                 [
                     'title' => __('Skip foreign orders', 'ry-invoice-for-ecpay'),
-                    'id' => \RY_IFECPAY::OPTION_PREFIX . 'skip_foreign_order',
+                    'id' => Main::OPTION_PREFIX . 'skip_foreign_order',
                     'type' => 'checkbox',
                     'default' => 'no',
                     'desc' => __('Disable auto get invoice for order billing country and shipping country are not in Taiwan.', 'ry-invoice-for-ecpay'),
@@ -104,7 +106,7 @@ final class Invoice
                 ],
                 [
                     'title' => __('Delay time (hours)', 'ry-invoice-for-ecpay'),
-                    'id' => \RY_IFECPAY::OPTION_PREFIX . 'get_delay_time',
+                    'id' => Main::OPTION_PREFIX . 'get_delay_time',
                     'type' => 'number',
                     'default' => '0',
                     'custom_attributes' => [
@@ -118,7 +120,7 @@ final class Invoice
                 ],
                 [
                     'title' => __('Invalid mode', 'ry-invoice-for-ecpay'),
-                    'id' => \RY_IFECPAY::OPTION_PREFIX . 'invalid_mode',
+                    'id' => Main::OPTION_PREFIX . 'invalid_mode',
                     'type' => 'select',
                     'default' => 'manual',
                     'options' => [
@@ -128,7 +130,7 @@ final class Invoice
                 ],
                 [
                     'title' => __('Trade no prefix', 'ry-invoice-for-ecpay'),
-                    'id' => \RY_IFECPAY::OPTION_PREFIX . 'prefix',
+                    'id' => Main::OPTION_PREFIX . 'prefix',
                     'type' => 'text',
                     'desc' => __('The prefix string of trade no. Only letters and numbers allowed.', 'ry-invoice-for-ecpay'),
                     'desc_tip' => true,
@@ -136,7 +138,7 @@ final class Invoice
                 ],
                 [
                     'title' => __('Custom track code', 'ry-invoice-for-ecpay'),
-                    'id' => \RY_IFECPAY::OPTION_PREFIX . 'trackcode',
+                    'id' => Main::OPTION_PREFIX . 'trackcode',
                     'type' => 'text',
                     'default' => '',
                     'autoload' => false,
@@ -152,9 +154,9 @@ final class Invoice
 
     public function check_option()
     {
-        if (!preg_match('/^[a-z0-9]{0,3}$/i', \RY_IFECPAY::get_option('prefix', ''))) {
+        if (!preg_match('/^[a-z0-9]{0,3}$/i', Main::get_option('prefix', ''))) {
             \WC_Admin_Settings::add_error(__('Trade no prefix only letters and numbers allowed, and maximum length is 3 characters.', 'ry-invoice-for-ecpay'));
-            \RY_IFECPAY::update_option('prefix', '', false);
+            Main::update_option('prefix', '', false);
         }
     }
 }

@@ -4,7 +4,6 @@ namespace RY\Invoice\Ecpay\Admin;
 
 defined('ABSPATH') or exit;
 
-use RY\Invoice\Ecpay\Admin\Ajax;
 use RY\Invoice\Ecpay\Admin\Page\General as PageGeneral;
 use RY\Invoice\Ecpay\Admin\Page\Option as PageOption;
 use RY\Invoice\Ecpay\License;

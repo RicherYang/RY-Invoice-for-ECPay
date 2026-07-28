@@ -187,7 +187,7 @@ final class LinkProvider
 
     public function get_info()
     {
-        $general_info = \RY_IFECPAY::get_option('general', []);
+        $general_info = Main::get_option('general', []);
         if (!is_array($general_info)) {
             $general_info = [];
         }
@@ -204,7 +204,7 @@ final class LinkProvider
 
     public function get_api_info($load_test = true)
     {
-        $api_info = \RY_IFECPAY::get_option('apiinfo', []);
+        $api_info = Main::get_option('apiinfo', []);
         if (!is_array($api_info)) {
             $api_info = [];
         }
