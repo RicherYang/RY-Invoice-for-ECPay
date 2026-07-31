@@ -4,15 +4,15 @@ namespace RY\Invoice\Ecpay;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260727\AbstractBasic;
-use RY\General\V20260727\Logs;
+use RY\General\V20260729\AbstractBasic;
+use RY\General\V20260729\Logs;
 use RY\Invoice\Ecpay\Admin\Admin;
 use RY\Invoice\Ecpay\WooCommerce\Fields;
 use RY\Invoice\Ecpay\WooCommerce\Invoice;
 
 final class Main extends AbstractBasic
 {
-    public const OPTION_PREFIX = 'RY_IFECPAY_';
+    public const PREFIX = 'RY_IFECPAY_';
 
     public const PLUGIN_NAME = 'RY Invoice for ECPay';
 
@@ -75,6 +75,6 @@ final class Main extends AbstractBasic
 
     public static function plugin_deactivation(): void
     {
-        wp_unschedule_hook(self::OPTION_PREFIX . 'check_expire');
+        wp_unschedule_hook(self::get_prefix_name('check_expire'));
     }
 }
