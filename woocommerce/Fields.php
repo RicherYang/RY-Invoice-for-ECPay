@@ -11,7 +11,7 @@ final class Fields extends AbstractFields
 {
     private static ?self $_instance = null;
 
-    protected string $host_type = 'ecpay_host';
+    protected string $type = 'ecpay';
 
     public static function instance(): Fields
     {
