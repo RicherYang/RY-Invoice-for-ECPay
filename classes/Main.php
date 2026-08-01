@@ -4,8 +4,8 @@ namespace RY\Invoice\Ecpay;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260729\AbstractBasic;
-use RY\General\V20260729\Logs;
+use RY\General\V20260801\AbstractBasic;
+use RY\General\V20260801\Utils;
 use RY\Invoice\Ecpay\Admin\Admin;
 use RY\Invoice\Ecpay\WooCommerce\Fields;
 use RY\Invoice\Ecpay\WooCommerce\Invoice;
@@ -32,13 +32,21 @@ final class Main extends AbstractBasic
     {
         load_plugin_textdomain('ry-invoice-for-ecpay', false, plugin_basename(dirname(__DIR__)) . '/languages');
 
-        Logs::set_log(self::get_option('log', 'no') === 'yes', 'ecpay-invoice');
-
         if (is_admin()) {
             Update::update();
         }
 
+        add_filter('ry-plugin/log_enabled', [$this, 'set_log_enabled'], 10, 2);
         add_action('init', [$this, 'do_wp_init'], 9);
+    }
+
+    public function set_log_enabled(bool $enabled, string $handle): bool
+    {
+        if ($handle === 'ecpay-invoice') {
+            return Utils::string_to_bool(self::get_option('log', ''));
+        }
+
+        return $enabled;
     }
 
     public function do_wp_init(): void
