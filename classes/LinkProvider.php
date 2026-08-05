@@ -227,7 +227,7 @@ final class LinkProvider extends AbstractLinkProvider
 
     protected function link_server(string $url, array $args, string $MerchantID, string $HashKey, string $HashIV, int $timeout = 30)
     {
-        wc_set_time_limit(40);
+        @set_time_limit(40);
 
         $json_string = wp_json_encode($args);
         $json_string = str_replace(
