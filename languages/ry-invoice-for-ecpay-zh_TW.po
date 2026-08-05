@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-06-29T20:45:49+08:00\n"
-"PO-Revision-Date: 2026-08-01 17:00+0800\n"
+"PO-Revision-Date: 2026-08-05 15:57+0800\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
@@ -33,7 +33,7 @@ msgstr "https://ry-plugin.com/ry-invoice-for-ecpay"
 msgid "Richer Yang"
 msgstr "Richer Yang"
 
-#: admin/Admin.php:80
+#: admin/Admin.php:82
 msgid "E-Invoice"
 msgstr "電子發票"
 
@@ -347,7 +347,7 @@ msgstr "退款"
 msgid "General options"
 msgstr "一般設定"
 
-#: admin/Admin.php:72
+#: admin/Admin.php:74
 msgid "Not recommended enable two invoice plugins at the same time!"
 msgstr "不建議同時啟用兩個發票外掛！"
 
@@ -395,7 +395,7 @@ msgstr "除錯記錄"
 msgid "Enable log"
 msgstr "啓用記錄"
 
-#: classes/LinkProvider.php:47
+#: classes/LinkProvider.php:49
 msgid "Customer"
 msgstr "消費者"
 
@@ -440,7 +440,7 @@ msgstr "綠界電子發票，支援 WooCommerce。"
 msgid "ECPay options"
 msgstr "綠界設定"
 
-#: classes/LinkProvider.php:154
+#: classes/LinkProvider.php:156
 msgid "Order cancel"
 msgstr "訂單取消"
 
@@ -449,7 +449,7 @@ msgstr "訂單取消"
 msgid "ECPay invoice"
 msgstr "綠界電子發票"
 
-#: classes/LinkProvider.php:48
+#: classes/LinkProvider.php:50
 msgid "Taiwan"
 msgstr "台灣"
 
@@ -562,3 +562,120 @@ msgstr "無法停用錯誤等級的紀錄。<strong>注意：</strong>紀錄可�
 #: admin/Page/html/option.php:40
 msgid "<strong>Note:</strong> For developers use ONLY."
 msgstr "<strong>注意：</strong>僅供開發者使用。"
+
+#: classes/Utils.php:14
+msgctxt "track term"
+msgid "Jan - Feb"
+msgstr "01 - 02 月"
+
+#: classes/Utils.php:15
+msgctxt "track term"
+msgid "Mar - Apr"
+msgstr "03 - 04 月"
+
+#: classes/Utils.php:16
+msgctxt "track term"
+msgid "May - Jun"
+msgstr "05 - 06 月"
+
+#: classes/Utils.php:17
+msgctxt "track term"
+msgid "Jul - Aug"
+msgstr "07 - 08 月"
+
+#: classes/Utils.php:18
+msgctxt "track term"
+msgid "Sep - Oct"
+msgstr "09 - 10 月"
+
+#: classes/Utils.php:19
+msgctxt "track term"
+msgid "Nov - Dec"
+msgstr "11 - 12 月"
+
+#: classes/Utils.php:32
+msgctxt "track status"
+msgid "Use"
+msgstr "使用中"
+
+#: classes/Utils.php:33
+msgctxt "track status"
+msgid "Disable"
+msgstr "停用"
+
+#: classes/Utils.php:34
+msgctxt "track status"
+msgid "Paused"
+msgstr "暫停中"
+
+#: classes/Utils.php:35
+msgctxt "track status"
+msgid "Pending"
+msgstr "待審核"
+
+#: classes/Utils.php:36
+msgctxt "track status"
+msgid "Review failed"
+msgstr "審核不通過"
+
+#: includes/ry-invoice/ListTable/Track.php:14
+msgctxt "Track table header"
+msgid "Year"
+msgstr "年分"
+
+#: includes/ry-invoice/ListTable/Track.php:15
+msgctxt "Track table header"
+msgid "Term"
+msgstr "期別"
+
+#: includes/ry-invoice/ListTable/Track.php:16
+msgctxt "Track table header"
+msgid "Code"
+msgstr "字軌名稱"
+
+#: includes/ry-invoice/ListTable/Track.php:17
+msgctxt "Track table header"
+msgid "Start number"
+msgstr "起始號碼"
+
+#: includes/ry-invoice/ListTable/Track.php:18
+msgctxt "Track table header"
+msgid "End number"
+msgstr "結束號碼"
+
+#: includes/ry-invoice/ListTable/Track.php:19
+msgctxt "Track table header"
+msgid "Current number"
+msgstr "目前已使用號碼"
+
+#: includes/ry-invoice/ListTable/Track.php:22
+msgctxt "Track table header"
+msgid "Status"
+msgstr "狀態"
+
+#: includes/ry-invoice/Page/Status.php:42
+msgid "Loading data..."
+msgstr "資料讀取中..."
+
+#: classes/Utils.php:31
+msgctxt "track status"
+msgid "Not enabled"
+msgstr "未啟用"
+
+#: includes/ry-invoice/ListTable/Track.php:20
+msgctxt "Track table header"
+msgid "Unused quantity"
+msgstr "未使用數量"
+
+#: includes/ry-invoice/Page/Status.php:22
+msgid "Track status"
+msgstr "字軌狀態"
+
+#: includes/ry-invoice/Page/Status.php:43
+msgid "Only get this and next term status."
+msgstr "只讀取本期與下期的狀態。"
+
+#: includes/ry-invoice/ListTable/Track.php:21
+msgctxt "Track table header"
+msgid "Track code"
+msgstr "字軌代號"

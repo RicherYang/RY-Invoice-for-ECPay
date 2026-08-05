@@ -6,7 +6,7 @@ defined('ABSPATH') or exit;
 
 use RY\Invoice\Ecpay\Main;
 use RY\Invoice\Ecpay\WooCommerce\Invoice;
-use RY\Invoice\V20260729\WooCommerce\AbstractAdminOrder;
+use RY\Invoice\V20260805\WooCommerce\AbstractAdminOrder;
 
 final class Order extends AbstractAdminOrder
 {

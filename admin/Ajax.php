@@ -4,6 +4,7 @@ namespace RY\Invoice\Ecpay\Admin;
 
 defined('ABSPATH') or exit;
 
+use RY\Invoice\Ecpay\Admin\ListTable\Track;
 use RY\Invoice\Ecpay\Main;
 use RY\Invoice\Ecpay\WooCommerce\Invoice;
 
@@ -26,6 +27,7 @@ final class Ajax
         add_action('wp_ajax_RY_IFECPAY_get', [$this, 'get_invoice']);
         add_action('wp_ajax_RY_IFECPAY_cancel', [$this, 'cancel_invoice']);
         add_action('wp_ajax_RY_IFECPAY_invalid', [$this, 'invalid_invoice']);
+        add_action('wp_ajax_RY_IFECPAY_track', [$this, 'track_status']);
     }
 
     public function get_invoice()
@@ -77,5 +79,18 @@ final class Ajax
         }
 
         wp_die();
+    }
+
+    public function track_status()
+    {
+        check_ajax_referer('track-status');
+
+        $list_table = new Track();
+        $list_table->prepare_items();
+        ob_start();
+        $list_table->display();
+        $html = ob_get_clean();
+
+        wp_send_json_success($html);
     }
 }

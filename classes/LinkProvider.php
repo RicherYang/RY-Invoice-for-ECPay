@@ -6,7 +6,7 @@ defined('ABSPATH') or exit;
 
 use RY\General\V20260801\Logs;
 use RY\General\V20260801\Utils;
-use RY\Invoice\V20260729\AbstractLinkProvider;
+use RY\Invoice\V20260805\AbstractLinkProvider;
 
 final class LinkProvider extends AbstractLinkProvider
 {
@@ -15,11 +15,13 @@ final class LinkProvider extends AbstractLinkProvider
     private array $api_test_url = [
         'get' => 'https://einvoice-stage.ecpay.com.tw/B2CInvoice/Issue',
         'invalid' => 'https://einvoice-stage.ecpay.com.tw/B2CInvoice/Invalid',
+        'track' => 'https://einvoice-stage.ecpay.com.tw/B2CInvoice/GetInvoiceWordSetting',
     ];
 
     private array $api_url = [
         'get' => 'https://einvoice.ecpay.com.tw/B2CInvoice/Issue',
         'invalid' => 'https://einvoice.ecpay.com.tw/B2CInvoice/Invalid',
+        'track' => 'https://einvoice.ecpay.com.tw/B2CInvoice/GetInvoiceWordSetting',
     ];
 
     public static function instance(): LinkProvider
@@ -167,6 +169,29 @@ final class LinkProvider extends AbstractLinkProvider
             Logs::log('ecpay-invoice', 'info', 'Invalid response #' . $object_ID, $result);
             do_action('ry_invoice_ecpay-post_invalid_invoice', $post_args, $result, $object_ID);
         }
+    }
+
+    public function track_status($year, $term)
+    {
+        $api_info = $this->get_api_info();
+
+        $post_args = [
+            'MerchantID' => $api_info['MerchantID'],
+            'InvoiceYear' => $year - 1911,
+            'InvoiceTerm' => $term,
+            'UseStatus' => 0,
+            'InvoiceCategory' => 1,
+        ];
+
+        if ($api_info['testmode']) {
+            $post_url = $this->api_test_url['track'];
+        } else {
+            $post_url = $this->api_url['track'];
+        }
+
+        $result = $this->link_server($post_url, $post_args, $api_info['MerchantID'], $api_info['HashKey'], $api_info['HashIV']);
+        Logs::log('ecpay-invoice', 'info', 'Track LINK #' . $year . '-' . $term, $result);
+        return $result;
     }
 
     public function get_api_info($load_test = true)
