@@ -87,7 +87,11 @@ msgstr ""
 msgid "Save Changes"
 msgstr ""
 
-#: admin/Page/Option.php:66
+#: admin/Page/Option.php:68
+msgid "Need API key information for connect to provider server."
+msgstr ""
+
+#: admin/Page/Option.php:70
 #: includes/ry-general/Page/Option.php:72
 #: includes/ry-invoice/Page/General.php:66
 msgid "Settings saved."

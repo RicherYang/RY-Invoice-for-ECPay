@@ -194,7 +194,7 @@ final class LinkProvider extends AbstractLinkProvider
         return $result;
     }
 
-    public function get_api_info($load_test = true)
+    public function get_api_info()
     {
         $api_info = Main::get_option('apiinfo', []);
         if (!is_array($api_info)) {
@@ -207,12 +207,6 @@ final class LinkProvider extends AbstractLinkProvider
             'HashIV' => '',
         ], $api_info);
         $api_info['testmode'] = Utils::string_to_bool($api_info['testmode']);
-
-        if ($load_test && $api_info['testmode']) {
-            $api_info['MerchantID'] = '2000132';
-            $api_info['HashKey'] = 'ejCk326UnaZWKisg';
-            $api_info['HashIV'] = 'q9jcZX8Ib9LM8wYk';
-        }
 
         return $api_info;
     }

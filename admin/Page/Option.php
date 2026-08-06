@@ -63,6 +63,10 @@ final class Option extends AbstractAdminPage
             'HashIV' => sanitize_locale_name($_POST['HashIV'] ?? ''),
         ];
         Main::update_option('apiinfo', $api_info, false);
+
+        if (empty($api_info['MerchantID']) || empty($api_info['HashKey']) || empty($api_info['HashIV'])) {
+            $this->add_notice('info', __('Need API key information for connect to provider server.', 'ry-invoice-for-ecpay'));
+        }
         $this->add_notice('success', __('Settings saved.', 'ry-invoice-for-ecpay'));
     }
 }
