@@ -1,7 +1,7 @@
 {
     "name": "ry-invoice-for-ecpay",
     "title": "RY Invoice for ECPay",
-    "version": "2026.8.5",
+    "version": "2026.8.7",
     "author": "Richer Yang",
     "private": true,
     "devDependencies": {
