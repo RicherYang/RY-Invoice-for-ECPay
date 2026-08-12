@@ -4,8 +4,8 @@ namespace RY\Invoice\Ecpay;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260801\AbstractBasic;
-use RY\General\V20260801\Utils;
+use RY\General\V20260810\AbstractBasic;
+use RY\General\V20260810\Utils;
 use RY\Invoice\Ecpay\Admin\Admin;
 use RY\Invoice\Ecpay\WooCommerce\Fields;
 use RY\Invoice\Ecpay\WooCommerce\Invoice;

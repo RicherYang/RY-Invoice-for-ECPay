@@ -4,7 +4,7 @@ namespace RY\Invoice\Ecpay\WooCommerce;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260801\Logs;
+use RY\General\V20260810\Logs;
 use RY\Invoice\Ecpay\LinkProvider;
 use RY\Invoice\Ecpay\Main;
 use RY\Invoice\Ecpay\WooCommerce\Admin\Admin;
