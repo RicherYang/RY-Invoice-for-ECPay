@@ -6,7 +6,7 @@ defined('ABSPATH') or exit;
 
 use RY\Invoice\Ecpay\LinkProvider;
 use RY\Invoice\Ecpay\Utils;
-use RY\Invoice\V20260805\ListTable\Track as BaseTrack;
+use RY\Invoice\V20260827\ListTable\Track as BaseTrack;
 
 final class Track extends BaseTrack
 {
