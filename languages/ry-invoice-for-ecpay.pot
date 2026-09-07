@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Invoice for ECPay 2026.8.27\n"
+"Project-Id-Version: RY Invoice for ECPay 2026.9.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-invoice-for-ecpay\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 
 #. Description of the plugin
 #: ry-invoice-for-ecpay.php
-msgid "ECPay E-invoice, support WooCommerce."
+msgid "ECPay E-invoice, support for WooCommerce."
 msgstr ""
 
 #. Author of the plugin
@@ -93,15 +93,17 @@ msgstr ""
 
 #: admin/Page/Option.php:70
 #: includes/ry-general/Page/Option.php:72
-#: includes/ry-invoice/Page/General.php:87
+#: includes/ry-invoice/Page/General.php:91
 msgid "Settings saved."
 msgstr ""
 
 #: classes/LinkProvider.php:49
+#: includes/ry-invoice/Page/html/general.php:20
 msgid "Customer"
 msgstr ""
 
 #: classes/LinkProvider.php:50
+#: includes/ry-invoice/Page/html/general.php:34
 msgid "Taiwan"
 msgstr ""
 
@@ -305,25 +307,61 @@ msgid "Status"
 msgstr ""
 
 #: includes/ry-invoice/Page/html/general.php:10
+msgid "Buyer options"
+msgstr ""
+
+#: includes/ry-invoice/Page/html/general.php:13
+msgid "Buyer name"
+msgstr ""
+
+#: includes/ry-invoice/Page/html/general.php:16
+#: includes/ry-invoice/Page/html/general.php:18
+msgid "Use real name"
+msgstr ""
+
+#: includes/ry-invoice/Page/html/general.php:20
+#, php-format
+msgid "If disabled, fallback to \"%s\" as the name."
+msgstr ""
+
+#: includes/ry-invoice/Page/html/general.php:21
+msgid "Only for personal invoice."
+msgstr ""
+
+#: includes/ry-invoice/Page/html/general.php:27
+msgid "Buyer address"
+msgstr ""
+
+#: includes/ry-invoice/Page/html/general.php:30
+#: includes/ry-invoice/Page/html/general.php:32
+msgid "Use real address"
+msgstr ""
+
+#: includes/ry-invoice/Page/html/general.php:34
+#, php-format
+msgid "If disabled, fallback to \"%s\" as the address."
+msgstr ""
+
+#: includes/ry-invoice/Page/html/general.php:41
 msgid "General options"
 msgstr ""
 
-#: includes/ry-invoice/Page/html/general.php:14
+#: includes/ry-invoice/Page/html/general.php:45
 msgid "Item count precision"
 msgstr ""
 
-#: includes/ry-invoice/Page/html/general.php:28
+#: includes/ry-invoice/Page/html/general.php:59
 msgid "Item amount precision"
 msgstr ""
 
-#: includes/ry-invoice/Page/html/general.php:42
+#: includes/ry-invoice/Page/html/general.php:73
 msgid "Default donate number"
 msgstr ""
 
 #. translators: %s: link to full list of donate numbers
-#: includes/ry-invoice/Page/html/general.php:49
+#: includes/ry-invoice/Page/html/general.php:80
 #, php-format
-msgid "Separate donate numbers with commas. Get <a href=\"%s\" target=\"_blank\">full list</a>."
+msgid "Separate donate numbers with commas. View <a href=\"%s\" target=\"_blank\">full list</a>."
 msgstr ""
 
 #: includes/ry-invoice/Page/Status.php:22
@@ -433,14 +471,14 @@ msgstr ""
 #: includes/ry-invoice/WooCommerce/AbstractAdminOrder.php:165
 #: includes/ry-invoice/WooCommerce/AbstractAdminOrder.php:261
 #: includes/ry-invoice/WooCommerce/AbstractFields.php:42
-msgid "Carruer type"
+msgid "Carrier type"
 msgstr ""
 
 #: includes/ry-invoice/WooCommerce/AbstractAdminOrder.php:176
 #: includes/ry-invoice/WooCommerce/AbstractAdminOrder.php:264
 #: includes/ry-invoice/WooCommerce/AbstractFields.php:53
 #: includes/ry-invoice/WooCommerce/AbstractFields.php:249
-msgid "Carruer number"
+msgid "Carrier number"
 msgstr ""
 
 #: includes/ry-invoice/WooCommerce/AbstractAdminOrder.php:181
@@ -523,12 +561,12 @@ msgid "Invalid tax ID number"
 msgstr ""
 
 #: includes/ry-invoice/WooCommerce/AbstractFields.php:221
-#: woocommerce/Invoice.php:288
+#: woocommerce/Invoice.php:298
 msgid "Zero total fee without invoice"
 msgstr ""
 
 #: includes/ry-invoice/WooCommerce/AbstractFields.php:228
-#: woocommerce/Invoice.php:294
+#: woocommerce/Invoice.php:304
 msgid "Negative total fee can't invoice"
 msgstr ""
 
@@ -658,7 +696,7 @@ msgstr ""
 msgid "Trade no prefix only letters and numbers allowed, and maximum length is 3 characters."
 msgstr ""
 
-#. translators: %1$s Error messade, %2$s Status code
+#. translators: %1$s Error message, %2$s Status code
 #: woocommerce/Invoice.php:142
 #: woocommerce/Invoice.php:157
 #, php-format
@@ -669,24 +707,24 @@ msgstr ""
 msgid "Invoice create time"
 msgstr ""
 
-#. translators: %1$s Error messade, %2$s Status code
+#. translators: %1$s Error message, %2$s Status code
 #: woocommerce/Invoice.php:196
 #: woocommerce/Invoice.php:211
 #, php-format
 msgid "Invalid invoice error: %1$s (%2$s)"
 msgstr ""
 
-#: woocommerce/Invoice.php:358
-#: woocommerce/Invoice.php:371
-#: woocommerce/Invoice.php:384
+#: woocommerce/Invoice.php:368
+#: woocommerce/Invoice.php:381
 #: woocommerce/Invoice.php:394
+#: woocommerce/Invoice.php:404
 msgid "parcel"
 msgstr ""
 
-#: woocommerce/Invoice.php:381
+#: woocommerce/Invoice.php:391
 msgid "shipping fee"
 msgstr ""
 
-#: woocommerce/Invoice.php:391
+#: woocommerce/Invoice.php:401
 msgid "return fee"
 msgstr ""

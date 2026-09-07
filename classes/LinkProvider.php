@@ -6,7 +6,7 @@ defined('ABSPATH') or exit;
 
 use RY\General\V20260810\Logs;
 use RY\General\V20260810\Utils;
-use RY\Invoice\V20260827\AbstractLinkProvider;
+use RY\Invoice\V20260906\AbstractLinkProvider;
 
 final class LinkProvider extends AbstractLinkProvider
 {
@@ -46,8 +46,8 @@ final class LinkProvider extends AbstractLinkProvider
             'RelateNumber' => $this->generate_trade_no($object_ID, $invoice_data['prefix']),
             'ProductServiceID' => $invoice_data['trackcode'],
             'CustomerIdentifier' => '',
-            'CustomerName' => __('Customer', 'ry-invoice-for-ecpay'),
-            'CustomerAddr' => __('Taiwan', 'ry-invoice-for-ecpay'),
+            'CustomerName' => $general_info['buyer']['name'] ? $invoice_data['name'] : __('Customer', 'ry-invoice-for-ecpay'),
+            'CustomerAddr' => $general_info['buyer']['address'] ? $invoice_data['address'] : __('Taiwan', 'ry-invoice-for-ecpay'),
             'CustomerEmail' => $invoice_data['email'],
             'Print' => 0,
             'Donation' => 0,
