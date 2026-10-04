@@ -5,7 +5,7 @@ namespace RY\Invoice\Ecpay\WooCommerce;
 defined('ABSPATH') or exit;
 
 use RY\Invoice\Ecpay\Main;
-use RY\Invoice\V20260906\WooCommerce\AbstractFields;
+use RY\Invoice\V20261004\WooCommerce\AbstractFields;
 
 final class Fields extends AbstractFields
 {
