@@ -4,8 +4,8 @@ namespace RY\Invoice\Ecpay;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20261107\AbstractBasic;
-use RY\General\V20261107\Utils;
+use RY\General\V20261116\AbstractBasic;
+use RY\General\V20261116\Utils;
 use RY\Invoice\Ecpay\Admin\Admin;
 use RY\Invoice\Ecpay\WooCommerce\Fields;
 use RY\Invoice\Ecpay\WooCommerce\Invoice;
@@ -16,9 +16,9 @@ final class Main extends AbstractBasic
 
     public const PLUGIN_NAME = 'RY Invoice for ECPay';
 
-    public const MIN_WC_VERSION = '9.0.0';
+    public const MIN_WC_VERSION = '10.0.0';
 
-    public const MIN_TUTOR_VERSION = '4.0.0';
+    public const MIN_TUTOR_VERSION = '4.2.0';
 
     private static ?self $_instance = null;
 
